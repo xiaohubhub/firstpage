@@ -443,12 +443,13 @@
             -webkit-backdrop-filter: blur(30px);
             border-radius: 24px;
             border: 1px solid var(--glass-border);
-            padding: 40px;
-            display: flex;
-            gap: 24px;
+            overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
         }
 
         .course-card:nth-child(1) { animation-delay: 0.15s; }
@@ -460,40 +461,55 @@
             background: rgba(40, 40, 80, 0.4);
         }
 
-        .course-icon {
-            width: 80px;
-            height: 80px;
-            min-width: 80px;
-            background: linear-gradient(135deg, var(--cyber-green), var(--cyber-blue));
-            border-radius: 20px;
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--cyber-pink), var(--cyber-blue));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+            animation: shimmer 8s infinite linear;
+        }
+
+        .course-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .course-content h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text-dark);
         }
 
         .course-content p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
         }
 
-        .course-level {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(107, 123, 138, 0.15);
-            border-radius: 20px;
-            font-size: 12px;
-            color: #6B7B8A;
-            font-weight: 500;
+        .course-content .btn {
+            align-self: flex-start;
+            margin-top: auto;
         }
 
         .about {
@@ -746,27 +762,27 @@
             </div>
             <div class="courses-grid">
                 <div class="course-card">
-                    <div class="course-icon">�</div>
+                    <div class="course-image">📄</div>
                     <div class="course-content">
                         <h3>简历优化工具</h3>
                         <p>一个帮助用户优化简历内容的在线工具，提供智能建议和模板，让你的简历脱颖而出。支持多种行业和职位类型，一键生成专业简历。</p>
-                        <a href="#" class="btn btn-glass" style="padding: 8px 20px; font-size: 14px; margin-top: 10px; display: inline-block;">查看项目</a>
+                        <a href="#" class="btn btn-glass">查看项目</a>
                     </div>
                 </div>
                 <div class="course-card">
-                    <div class="course-icon">📱</div>
+                    <div class="course-image">📱</div>
                     <div class="course-content">
                         <h3>小红书图文工作流</h3>
                         <p>专为内容创作者设计的工作流工具，帮助你快速制作和管理小红书图文内容。支持批量处理、模板管理和发布计划，提高创作效率。</p>
-                        <a href="#" class="btn btn-glass" style="padding: 8px 20px; font-size: 14px; margin-top: 10px; display: inline-block;">查看项目</a>
+                        <a href="#" class="btn btn-glass">查看项目</a>
                     </div>
                 </div>
                 <div class="course-card">
-                    <div class="course-icon">🎮</div>
+                    <div class="course-image">🎮</div>
                     <div class="course-content">
                         <h3>记忆翻牌小游戏</h3>
                         <p>一个有趣的记忆训练游戏，通过翻牌配对来锻炼记忆力。包含多种难度级别和主题，适合所有年龄段的用户。完全响应式设计，支持各种设备。</p>
-                        <a href="#" class="btn btn-glass" style="padding: 8px 20px; font-size: 14px; margin-top: 10px; display: inline-block;">查看项目</a>
+                        <a href="#" class="btn btn-glass">查看项目</a>
                     </div>
                 </div>
             </div>
